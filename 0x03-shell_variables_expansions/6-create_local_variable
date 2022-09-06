@@ -1,2 +1,2 @@
 #!/bin/bash
-test () { local BEST="School"; }
+function test () { local BEST="School" }
