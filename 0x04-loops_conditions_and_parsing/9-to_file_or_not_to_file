@@ -1,25 +1,25 @@
 #!/usr/bin/env bash
-#bash script that gives you information about the holbertonschool file
+#bash script that gives you information about the bestschool file
 found=0
 for file in *; do
-    if [ "$file" == "holbertonschool" ]
+    if [ "$file" == "bestschool" ]
 	then
 	let found=1
-	echo "holbertonschool file exists"
+	echo "bestschool file exists"
 	if [ -s "$file" ]
 	    then
-	    echo "holbertonschool file is not empty"
+	    echo "bestschool file is not empty"
 	else
-	    echo "holbertonschool file is empty"
+	    echo "bestschool file is empty"
 	fi
 	if [ -f "$file" ]
 	    then
-	    echo "holbertonschool is a regular file"
+	    echo "bestschool is a regular file"
 	fi
     fi
 done
 
 if [ $found -eq 0 ]
     then
-    echo "holbertonschool file does not exist"
+    echo "bestschool file does not exist"
 fi
