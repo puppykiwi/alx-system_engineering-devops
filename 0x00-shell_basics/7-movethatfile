@@ -1,2 +1,2 @@
-#!/usr/bin/bash
+#!/bin/bash
 sudo mv /tmp/betty /tmp/my_first_directory/betty
