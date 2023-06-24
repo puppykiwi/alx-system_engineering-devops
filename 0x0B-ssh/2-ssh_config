@@ -1,0 +1,8 @@
+#!/usr/bin/env bash
+#creates a config file to connect to ssh
+Host alx
+    Hostname 54.173.175.228
+    User ubuntu
+    IdentityFile ~/.ssh/school
+    PreferredAuthentications publickey
+    PasswordAuthentication no
