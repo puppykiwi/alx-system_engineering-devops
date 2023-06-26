@@ -6,9 +6,9 @@ if [ $# -lt 3 ]; then
     exit 1
 fi
 
-$PATH_TO_FILE = $1
-$IP = $2
-$USERNAME = $3
-$PATH_TO_SSH_KEY = $4
+PATH_TO_FILE="$1"
+IP="$2"
+USERNAME="$3"
+PATH_TO_SSH_KEY="$4"
 
-scp -i $PATH_TO_SSH_KEY $PATH_TO_FILE $USERNAME@$IP:/~/ 
+scp -i $PATH_TO_SSH_KEY $PATH_TO_FILE $USERNAME@$IP:~/ 
