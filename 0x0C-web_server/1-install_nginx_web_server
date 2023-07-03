@@ -1,0 +1,7 @@
+#!/usr/bin/env bash
+# installing nginx on the web-01 server
+apt -y update
+apt -y install nginx
+mv /usr/share/nginx/html/index.html /usr/share/nginx/html/index.html.bak
+echo "Hello World!" > /usr/share/nginx/html/index.html
+service nginx restart
