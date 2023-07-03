@@ -3,7 +3,8 @@
 apt-get -y update
 apt-get -y install nginx
 mv /usr/share/nginx/html/index.html /usr/share/nginx/html/index.html.bak
-echo "Hello World!" > /usr/share/nginx/html/index.html
+mv /var/www/html/index.nginx-debian.html /var/www/html/index.nginx-debian.html.bak
+echo "Hello World!" > /var/www/html/index.nginx-debian.html
 NGINX_CONF="/etc/nginx/nginx.conf"
 cp "$NGINX_CONF" "$NGINX_CONF.bak"
 sed -i 's/listen\s*\(.*\);/listen 80;/g' "$NGINX_CONF"
