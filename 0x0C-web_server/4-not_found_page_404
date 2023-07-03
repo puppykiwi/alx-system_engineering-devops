@@ -1,0 +1,10 @@
+#!/usr/bin/env bash
+# custom 404 page
+sudo apt-get -y install nginx
+sudo chown -R ubuntu /var/www
+echo "Hello World!" > /var/www/html/index.nginx-debian.html
+echo "Ceci n'est pas une page" > /var/www/html/error_404.html
+sudo service nginx start
+sudo sed -i "s/server_name _;/server_name _;\n\trewrite ^\/redirect_me https:\/\/www.youtube.com\/watch?v=NdYWuo9OFAw permanent;/" /etc/nginx/sites-available/default
+echo "Ceci n'est pas une page" > /usr/share/nginx/html/404.html
+sudo service nginx restart
