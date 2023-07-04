@@ -2,5 +2,5 @@
 #configures the web2 server for deployment of the web_static content
 apt-get  update ; apt-get -y install nginx
 string="http {\n\tadd_header X-Served-By \"$HOSTNAME\";"
-sudo sed -i "s/http {/$string/" /etc/nginx/sites-available/default
+sudo sed -i "s/server {/$string/" /etc/nginx/sites-available/default
 sudo service nginx restart
