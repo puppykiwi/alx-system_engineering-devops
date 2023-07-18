@@ -1,0 +1,3 @@
+#!/usr/bin/env bash
+# changes the user and runs whoami
+su -c "whoami" -s /bin/sh $1
