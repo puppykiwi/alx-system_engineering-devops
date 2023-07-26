@@ -6,16 +6,9 @@ extend your Python script to export data in the CSV format.
 """
 
 import csv
-import requests
-
-#!/usr/bin/python3
-"""script that fetches info about a given employee using an api
-and exports it in csv format
-"""
 import json
 import requests
 import sys
-
 
 base_url = 'https://jsonplaceholder.typicode.com'
 
