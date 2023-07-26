@@ -2,7 +2,7 @@
 
 """ a Python script that, using this REST API,
     for a given employee ID, returns information
-    about his/her TODO list progress. """
+    about his/her to-do list progress. """
 
 import requests
 from sys import argv
