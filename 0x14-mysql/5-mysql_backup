@@ -1,0 +1,5 @@
+#!/usr/bin/env bash
+#creates a myswl bak and compresses it to a tar.gz file with the date and time
+
+mysqldump -uroot -p"$1" --all-databases > backup.sql
+tar -cvzf "$(date +%d-%m-%Y)".tar.gz backup.sql
