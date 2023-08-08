@@ -7,33 +7,29 @@ from sys import argv
 
 
 def recurse(subreddit, hot_list=[], after=None):
-    """Gets hot posts in subreddit
-       Args:
-           subreddit (str): name of subreddit
-           hot_list (list): list of titles
-           after (str): id of next set of results
     """
-    base_url = 'https://api.reddit.com/r/'
-    headers = {'User-Agent': 'my-app/0.0.1'}
-    response = requests.get(
-        '{}{}/hot?after={}'.format(
-            base_url,
-            subreddit, after), headers=headers, allow_redirects=False)
+    Args:
+        subreddit (str): subreddit
 
-    if response.status_code != 200:
-        return None
-    else:
-        hot_dict = response.json()
-        if len(hot_dict['data']['children']) == 0:
-            return hot_list
-        else:
-            for d in hot_dict['data']['children']:
-                hot_list.append(d['data']['title'])
+    Returns:
+        int: number of subscribers
+    """
+    base_url = 'https://www.reddit.com/r/'
 
-            after = hot_dict['data']['after']
-            if after is None:
-                return hot_list
-            return recurse(subreddit, hot_list, after=after)
+    url = '{}{}/about.json'.format(base_url, subreddit)
+    headers = {
+        'User-Agent':
+        'Mozilla/5.0 (Windows; U; Windows NT 5.1; de; rv:1.9.2.3) \
+        Gecko/20100401 Firefox/3.6.3 (FM Scene 4.6.1)'
+    }
+    results = requests.get(
+        url,
+        headers=headers,
+        allow_redirects=False
+    )
+    if results.status_code == 200:
+        return results.json()['data']['subscribers']
+    return 0
 
 
 if __name__ == "__main__":
