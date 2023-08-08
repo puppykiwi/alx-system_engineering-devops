@@ -18,7 +18,9 @@ def count_words(subreddit_name, word_list, word_counts=None, after=None):
     
         client_id=getenv("CLIENT"),
         client_secret=getenv('SECRET'),
-        user_agent=getenv('AGENT')
+        user_agent=getenv('AGENT'),
+        user_name=getenv('USER'),
+        password=getenv('PASS')
     )
     
     try:
@@ -46,4 +48,5 @@ def count_words(subreddit_name, word_list, word_counts=None, after=None):
 if __name__ == "__main__":
     subreddit_name = "kenya"  # Replace with your desired subreddit
     keywords = ["python", "javascript", "java"]  # Replace with your desired keywords
-    count_words(subreddit_name, keywords)
+    #count_words(subreddit_name, keywords)
+    
