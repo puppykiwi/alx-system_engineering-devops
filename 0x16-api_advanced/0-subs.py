@@ -14,7 +14,7 @@ load_dotenv()
 
 
 def number_of_subscribers(subreddit_name):
-    user_agent = "Your User Agent"  # Replace with your User Agent
+    user_agent = getenv("AGENT")
     
     url = f"https://www.reddit.com/r/{subreddit_name}/about.json"
     headers = {"User-Agent": user_agent}
