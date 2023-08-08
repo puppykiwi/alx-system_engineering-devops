@@ -2,15 +2,8 @@
 """ QUery the Reddit API and returns the
     number of subscribers for a given subreddit."""
 
-from dotenv import load_dotenv
-from os import getenv
-import praw
-import prawcore
 import requests
 from sys import argv
-
-load_dotenv()
-
 
 
 def number_of_subscribers(subreddit):

@@ -2,28 +2,37 @@
 """ QUery the Reddit API and returns the
     top ten hot posts for a given subreddit."""
 
-from os import getenv
-import praw
-import prawcore
 import requests
-from dotenv import load_dotenv
 from sys import argv
-
-load_dotenv()
 
 
 def top_ten(subreddit):
-    reddit = praw.Reddit(
-        client_id=getenv('CLIENT'),
-        client_secret=getenv('SECRET'),
-        user_agent=getenv('AGENT')
-    )
+    """
+    Args:
+        subreddit (str): subreddit
 
-    try:
-        subreddit = reddit.subreddit(subreddit)
-        for submission in subreddit.hot(limit=10):
-            print(submission.title)
-    except (prawcore.exceptions.NotFound, prawcore.exceptions.Redirect):
+    Returns:
+        str: titles of the first 10 hot posts
+    """
+    base_url = 'https://www.reddit.com'
+    sort = 'top'
+    limit = 10
+    url = '{}/r/{}/.json?sort={}&limit={}'.format(
+        base_url, subreddit, sort, limit)
+    headers = {
+        'User-Agent':
+        'Mozilla/5.0 (Windows; U; Windows NT 5.1; de; rv:1.9.2.3) \
+        Gecko/20100401 Firefox/3.6.3 (FM Scene 4.6.1)'
+    }
+    response = requests.get(
+        url,
+        headers=headers,
+        allow_redirects=False
+    )
+    if response.status_code == 200:
+        for post in response.json()['data']['children'][0:10]:
+            print(post['data']['title'])
+    else:
         print(None)
 
 
