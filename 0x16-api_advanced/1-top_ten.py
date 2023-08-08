@@ -2,7 +2,7 @@
 """ QUery the Reddit API and returns the top ten hot posts for a given subreddit."""
 
 from os import getenv
-import praw
+import praw, prawcore
 import requests
 from dotenv import load_dotenv
 from sys import argv
