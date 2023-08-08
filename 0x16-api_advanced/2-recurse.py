@@ -5,6 +5,7 @@ titles of all hot articles for a given subreddit."""
 import requests
 from sys import argv
 
+
 def recurse(subreddit, hot_list=[], after=None):
     """Gets hot posts in subreddit
        Args:
@@ -33,6 +34,7 @@ def recurse(subreddit, hot_list=[], after=None):
             if after is None:
                 return hot_list
             return recurse(subreddit, hot_list, after=after)
+
 
 if __name__ == "__main__":
     print(recurse(argv[1]))
