@@ -1,5 +1,7 @@
-import sys
+#!/usr/bin/python3
+
 import requests
+import sys
 
 def number_of_subscribers(subreddit):
     # Calls and formats a stribng from a json result
