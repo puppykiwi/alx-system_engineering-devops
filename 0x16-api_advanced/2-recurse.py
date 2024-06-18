@@ -18,7 +18,7 @@ def recurse(subreddit, count = 0, after = None):
         after = data.get('data', {}).get('after')
 
         for post in posts:
-            post_data = posts.get("data", {})
+            post_data = post.get("data", {})
             post_title = post_data.get("title")
             print (post_title)
         
