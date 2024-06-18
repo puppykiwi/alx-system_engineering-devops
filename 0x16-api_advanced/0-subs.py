@@ -3,11 +3,12 @@
 import requests
 import sys
 
+
 def number_of_subscribers(subreddit):
     # Calls and formats a stribng from a json result
-    url = f"https://www.reddit.com/r/{subreddit}/about.json"
+    url = (f"https: //www.reddit.com/r/{subreddit}/about.json")
     headers = {"User-Agent": "Mozilla/5.0"}
-    
+
     response = requests.get(url, headers)
 
     if response.status_code == 200:
@@ -19,8 +20,6 @@ def number_of_subscribers(subreddit):
         else:
             print("Unexpected JSON structure")
             return 0
-
-        
     else:
         print("Er code: ", response.status_code)
         return 0
