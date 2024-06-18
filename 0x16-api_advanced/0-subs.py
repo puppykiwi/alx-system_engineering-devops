@@ -14,10 +14,12 @@ def number_of_subscribers(subreddit):
     """
     Calls and formats a stribng from a json result
     """
-    url = (f"https: //www.reddit.com/r/{subreddit}/about.json")
+    url = "https://www.reddit.com"
     headers = {"User-Agent": "Mozilla/5.0"}
 
-    response = requests.get(url, headers)
+    response = requests.get('{}/r/{}/about.json'
+                            .format(url, subreddit),
+                            headers=headers, allow_redirects=False)
 
     if response.status_code == 200:
         # print("call successful")
