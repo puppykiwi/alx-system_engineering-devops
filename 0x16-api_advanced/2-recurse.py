@@ -3,6 +3,13 @@
 import requests
 import sys
 
+def recurse(subreddit, counter):
+    url = "https://www.reddit.com/r/{subreddit}/hot.json"
+    params = 
+
+    posts = data.get('data', {}).get('children', [])  # Extract posts
+    after = data.get('data', {}).get('after')
+
 
 if __name__ == '__main__':
     recurse = __import__('2-recurse').recurse
