@@ -11,10 +11,16 @@ def number_of_subscribers(subreddit):
         # print("call successful")
         # print(response.json)
         data = response.json()
+        if 'data' in data and 'subscribers' in data['data']:
+            return data['data']['subscribers']
+        else:
+            print("Unexpected JSON structure")
+            return 0
 
-        return data
+        
     else:
         print("Er code: ", response.status_code)
+        return 0
 
 
 if __name__ == '__main__':
