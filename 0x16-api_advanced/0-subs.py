@@ -21,7 +21,7 @@ def number_of_subscribers(subreddit):
             print("Unexpected JSON structure")
             return 0
     else:
-        print("Er code: ", response.status_code)
+        print("Err code: ", response.status_code)
         return 0
 
 
