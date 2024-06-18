@@ -6,7 +6,7 @@ import sys
 
 def number_of_subscribers(subreddit):
     # Calls and formats a stribng from a json result
-    url = (f"https: //www.reddit.com/r/{subreddit}/about.json")
+    url = (f"https://www.reddit.com/r/{subreddit}/about.json")
     headers = {"User-Agent": "Mozilla/5.0"}
 
     response = requests.get(url, headers)
