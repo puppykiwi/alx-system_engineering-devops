@@ -3,16 +3,18 @@
 import requests
 import sys
 
-def recurse(subreddit, count = 0, after = None, limit = 20):
+def recurse(subreddit, count = 0, after = None, limit = 100, all_posts = None):
+
+    if all_posts is None:
+        all_posts = []
 
     url = f"https://www.reddit.com/r/{subreddit}/hot.json"
     params = {"limit": limit, "after": after, "count": count}
-    all_posts = []
 
     response = requests.get(url, params)
 
     if response.status_code == 200:
-        print("success")
+        # print("success")
         data = response.json()
         posts = data.get('data', {}).get('children', []) 
         after = data.get('data', {}).get('after')
@@ -28,7 +30,8 @@ def recurse(subreddit, count = 0, after = None, limit = 20):
         print("Err code: ", response.status_code)
 
     if after and count < limit:
-            all_posts.extend(recurse(subreddit, count, after, limit))
+            print("\n ** resursing **\n")
+            recurse(subreddit, count + len(posts), after, limit)
 
     return all_posts
 
