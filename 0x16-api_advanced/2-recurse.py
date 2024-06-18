@@ -3,16 +3,31 @@
 import requests
 import sys
 
-def recurse(subreddit, counter):
-    url = "https://www.reddit.com/r/{subreddit}/hot.json"
-    params = 
+def recurse(subreddit, count = 0, after = None):
 
-    posts = data.get('data', {}).get('children', [])  # Extract posts
-    after = data.get('data', {}).get('after')
+    url = f"https://www.reddit.com/r/{subreddit}/hot.json"
+    params = {"limit": "20", "after": after, "count": count}
+    all_posts = []
 
+    response = requests.get(url, params)
+
+    if response.status_code == 200:
+        print("success")
+        data = response.json()
+        posts = data.get('data', {}).get('children', []) 
+        after = data.get('data', {}).get('after')
+
+        for post in posts:
+            post_data = posts.get("data", {})
+            post_title = post_data.get("title")
+            print (post_title)
+        
+    else:
+        print("Err code: ", response.status_code)
+    return all_posts
 
 if __name__ == '__main__':
-    recurse = __import__('2-recurse').recurse
+    # recurse = __import__('2-recurse').recurse
     if len(sys.argv) < 2:
         print("Please pass an argument for the subreddit to search.")
     else:
