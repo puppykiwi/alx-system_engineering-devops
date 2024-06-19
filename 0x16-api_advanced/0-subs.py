@@ -30,12 +30,12 @@ def number_of_subscribers(subreddit):
             return data['data']['subscribers']
         else:
             print("Unexpected JSON structure")
-            return 0
+            return None
     else:
         if response.status_code == 404:
             print("OK")
         # print("Err code: ", response.status_code)
-        return 0
+        return None
 
 
 if __name__ == "__main__":
