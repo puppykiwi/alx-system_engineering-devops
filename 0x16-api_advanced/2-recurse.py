@@ -1,5 +1,7 @@
 #!/usr/bin/python3
-'''A module containing functions for working with the Reddit API.
+'''
+A module containing functions for working with the Reddit API.
+uses pagination and counters to get the entire list
 '''
 
 import requests
@@ -50,7 +52,9 @@ def recurse(subreddit, count=0, after=None, limit=100, all_posts=None):
     return all_posts
 
 if __name__ == '__main__':
-    # recurse = __import__('2-recurse').recurse
+    """
+    recurse = __import__('2-recurse').recurse
+    """
     if len(sys.argv) < 2:
         print("Please pass an argument for the subreddit to search.")
     else:
