@@ -1,1 +1,30 @@
 https://medium.com/@puppykiwi/demystifying-the-browser-95d75d035cf8
+Introduction:
+Have you ever wondered what happens behind the scenes when you type “https://www.google.com" in your browser and press Enter? In this blog post, we will walk you through the fascinating journey of a web request, covering the essential components involved in delivering the requested web page.
+
+DNS Request:
+The first step is translating the human-readable URL, “www.google.com," into an IP address that computers can understand. Your browser sends a Domain Name System (DNS) request to a DNS server, typically provided by your internet service provider (ISP) or a public DNS server like Google DNS. The DNS server responds with the corresponding IP address, allowing your browser to establish a connection with the intended server.
+
+TCP/IP:
+With the IP address in hand, your browser initiates a Transmission Control Protocol (TCP) connection with the server. TCP breaks the data into small packets and ensures reliable transmission by confirming packet delivery and retransmitting lost packets if necessary. It establishes a two-way communication channel between your browser and the server.
+
+Firewall:
+Before reaching the server, the packets may encounter a firewall — a security mechanism that monitors incoming and outgoing traffic. The firewall analyzes the packets, applying predefined rules to filter potentially malicious data and protect the server from unauthorized access.
+
+HTTPS/SSL:
+If you typed “https://” instead of “http://," your browser is utilizing the Hypertext Transfer Protocol Secure (HTTPS) protocol. HTTPS provides an additional layer of security by encrypting the data transmitted between your browser and the server. It uses Secure Sockets Layer (SSL) or Transport Layer Security (TLS) to establish a secure connection, ensuring confidentiality and integrity.
+
+Load-Balancer:
+Popular websites like Google employ load balancers to distribute incoming requests across multiple servers. Load balancers improve performance and reliability by distributing the workload evenly among servers, preventing any single server from being overwhelmed. The load balancer determines the most suitable server to handle your request and forwards it accordingly.
+
+Web Server:
+Once the request reaches the web server, it processes the HTTP request, retrieves the requested web page, and assembles the response. The web server may also handle other tasks, such as executing server-side scripts, interacting with databases, or serving static files.
+
+Application Server:
+In more complex web applications, an application server may be involved. The application server executes the business logic of the web application, processes dynamic content, interacts with databases, and performs other server-side tasks. It generates the necessary data to construct the requested web page.
+
+Database:
+If the web page requires data from a database, the application server queries the database to retrieve the relevant information. The database stores and organizes large volumes of structured data, allowing the application server to fetch and manipulate the necessary data to generate a dynamic web page.
+
+Conclusion:
+The journey of a web request from typing “https://www.google.com" to viewing the requested page involves several intricate components working seamlessly together. Understanding the roles of DNS, TCP/IP, firewalls, HTTPS/SSL, load balancers, web servers, application servers, and databases provides a glimpse into the complex infrastructure behind the websites we visit every day. So, the next time you enter a URL in your browser, remember the behind-the-scenes magic that happens to deliver the web page to your screen.
