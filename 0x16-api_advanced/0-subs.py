@@ -34,7 +34,7 @@ def number_of_subscribers(subreddit):
         if response.status_code == 404:
             print("OK")
         # print("Err code: ", response.status_code)
-        return "OK"
+        return 0
 
 
 if __name__ == "__main__":
