@@ -32,9 +32,9 @@ def number_of_subscribers(subreddit):
             return 0
     else:
         if response.status_code == 404:
-            print("None")
+            print("OK")
         # print("Err code: ", response.status_code)
-        return 0
+        return "OK"
 
 
 if __name__ == "__main__":
