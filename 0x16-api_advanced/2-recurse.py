@@ -44,6 +44,9 @@ def recurse(subreddit, count=0, after=None, limit=100, all_posts=None):
 
     else:
         print("Err code: ", response.status_code)
+        if response.status_code == 404:
+            print("None")
+            return 0
 
     if after and count < limit:
             print("\n ** resursing **\n")
