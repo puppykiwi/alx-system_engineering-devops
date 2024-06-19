@@ -31,5 +31,12 @@ def number_of_subscribers(subreddit):
             print("Unexpected JSON structure")
             return 0
     else:
-        print("Err code: ", response.status_code)
+        # print("Err code: ", response.status_code)
         return 0
+
+
+if __name__ == "__main__":
+    if len(sys.argv) < 2:
+        print("Please pass an argument for the subreddit to search.")
+    else:
+        print("{:d}".format(number_of_subscribers(sys.argv[1])))
