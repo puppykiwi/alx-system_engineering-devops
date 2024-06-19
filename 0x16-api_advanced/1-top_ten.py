@@ -1,14 +1,27 @@
 #!/usr/bin/python3
+'''A module containing functions for working with the Reddit API.
+'''
 
 import requests
 import sys
+"""
+This program will find and print the no of subscribers in a specified
+reddit subreddit
+"""
+
 
 def top_ten(subreddit):
-    url = f"https://www.reddit.com/r/{subreddit}/hot.json"
-    #headers = {"User-Agent": "Mozilla/5.0"}
+    """
+    Calls and formats a stribng from a json result
+    """
+    url = "https://www.reddit.com"
     params = {"limit": "10"}
-    
-    response = requests.get(url, params)
+    headers = {"User-Agent": "Mozilla/5.0"}
+
+    response = requests.get('{}/r/{}/hot.json'
+                            .format(url, subreddit),
+                            headers=headers, params=params,
+                            allow_redirects=False)
 
     if response.status_code == 200:
         # print("call successful")
@@ -21,13 +34,13 @@ def top_ten(subreddit):
             score = post_data.get('score')
             permalink = post_data.get('permalink')
             url = post_data.get('url')
-            print(f"Title: {title}\nScore: {score}\nURL: {url}\nPermalink: {permalink}\n")
-        
+            print("Title: {}\nScore: {}\nURL:{}\nPermalink: {}\n"
+                  .format(title, score, url, permalink))
+
         else:
             print("Unexpected JSON structure")
             return 0
 
-        
     else:
         print("Err code: ", response.status_code)
         return 0
