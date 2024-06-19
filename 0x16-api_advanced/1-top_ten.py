@@ -3,7 +3,6 @@
 '''
 import requests
 
-
 BASE_URL = 'https://www.reddit.com'
 '''Reddit's base API URL.
 '''
