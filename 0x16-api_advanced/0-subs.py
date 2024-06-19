@@ -26,6 +26,7 @@ def number_of_subscribers(subreddit):
         # print(response.json)
         data = response.json()
         if 'data' in data and 'subscribers' in data['data']:
+            print("OK")
             return data['data']['subscribers']
         else:
             print("Unexpected JSON structure")
