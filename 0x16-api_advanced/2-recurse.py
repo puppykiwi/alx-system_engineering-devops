@@ -12,7 +12,8 @@ reddit subreddit
 
 def recurse(subreddit, count=0, after=None, limit=100, all_posts=None):
     """
-    Calls and formats a stribng from a json result
+    Calls and formats a stribng from a json result while recursing
+    counts the titles of a subreddit
     """
     if all_posts is None:
         all_posts = []
