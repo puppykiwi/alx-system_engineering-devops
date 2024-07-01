@@ -1,7 +1,6 @@
 #!/usr/bin/python3
 """Function to query subscribers on a given Reddit subreddit."""
 import requests
-import sys
 
 
 def number_of_subscribers(subreddit):
@@ -15,10 +14,3 @@ def number_of_subscribers(subreddit):
         return 0
     results = response.json().get("data")
     return results.get("subscribers")
-
-if __name__ == "__main__":
-    if len(sys.argv) < 2:
-        print("Please try again:")
-
-    else:
-        number_of_subscribers(sys.argv[1])
